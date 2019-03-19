@@ -18,11 +18,14 @@ void setup() {
 void draw() {
   c.update();
   c.update();
-  c.display();
+  c.display(1);
   
   saveFrame( "output/frame####.png");
-  
+  if( frameCount % 60 == 0 ){
+    println( (frameCount/60) + " seconds" );
+  }
   if( frameCount >= endFrame ){
+    //saveFrame( "output/finalFrame.png");    
     noLoop();
   }
 }

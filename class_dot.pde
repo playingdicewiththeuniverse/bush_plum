@@ -1,6 +1,7 @@
 class Dot {
   PVector position;
   float size;
+  int edgeIndex;
   Dot( PVector _pos, float _size ){
     position = _pos;
     size = _size;

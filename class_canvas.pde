@@ -8,6 +8,7 @@ class Canvas {
     dots = new ArrayList<Dot>();
     active = new IntList();
     Dot d0 = new Dot( random(width), random(height), random(5,15) );
+    d0.edgeIndex = 0;
     dots.add(d0);
     active.append(0);
   }
@@ -25,6 +26,7 @@ class Canvas {
         float theta    = random( TWO_PI );
         float distance = (DIST + radius + radius) * random( 1, 2 );
         Dot d1 = new Dot( d0.position.x + distance * cos(theta), d0.position.y + distance * sin(theta), radius );
+        d1.edgeIndex = randomIndex;
         if( isValid( d1 ) ){
           dots.add( d1 );
           active.append( dots.size()-1 );
@@ -42,16 +44,42 @@ class Canvas {
   }
   
   
-  void display() {
+  void display( int mode ) {
     background(0);
-    for( int i = 0; i < dots.size(); i++ ){
-      Dot d = dots.get(i);
-      if( active.hasValue(i) ){
-        fill(127);
-      }else{
-        fill(255);
+    noStroke();
+    if( mode == 1 ){
+      for( int i = 0; i < dots.size(); i++ ){
+        Dot d = dots.get(i);
+        if( active.hasValue(i) ){
+          fill(127);
+        }else{
+          fill(255);
+        }
+        ellipse( d.position.x, d.position.y, d.size, d.size );
       }
-      ellipse( d.position.x, d.position.y, d.size, d.size );
+    }else if( mode == 2 ){
+      for( int i = 0; i < dots.size(); i++ ){
+        Dot d1 = dots.get(i);
+        Dot d2 = dots.get(d1.edgeIndex);
+        
+        if( active.hasValue(i) ){
+          stroke( 51 );
+        }else{
+          stroke( 153 );
+        }
+        line( d1.position.x, d1.position.y, d2.position.x, d2.position.y );
+      }
+      
+    noStroke();     
+      for( int i = 0; i < dots.size(); i++ ){
+        Dot d = dots.get(i);
+        if( active.hasValue(i) ){
+          fill(127);
+        }else{
+          fill(255);
+        }
+        ellipse( d.position.x, d.position.y, d.size, d.size );
+      }
     }
   }
 
