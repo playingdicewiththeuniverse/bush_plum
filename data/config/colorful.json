@@ -1,0 +1,19 @@
+{
+	"CANVAS_WIDTH":         1080,
+	"CANVAS_HEIGHT":        1080,
+	"INDEX_SELECTION_MODE": 2,
+	"RANDOM_RADIUS_MODE":   2,
+	"SEED":                 42,
+	"RANDOM_SCALE":         4.0,
+	"NOISE_SCALE":          0.1,
+	"NOISE_MIN":            0.1,
+	"NOISE_MAX":            0.9,
+	"RECORD":               false,
+	"SPEED":                100,
+	"COLOR_SPEED":          2,
+	"R_MIN":                3,
+	"R_MAX":                17,
+	"DIST" :                10,
+	"DISPLAY_COLOR_MODE":   3,
+	"DISPLAY_SHAPE_MODE":   1
+}
