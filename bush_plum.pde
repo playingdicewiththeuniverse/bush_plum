@@ -3,7 +3,7 @@ Canvas c;
 
 
 void settings() {
-  loadConfig("config/amanda.json");
+  loadConfig("");
   if( CANVAS_WIDTH < 0 || CANVAS_HEIGHT < 0 ){
     fullScreen();
   }else{
